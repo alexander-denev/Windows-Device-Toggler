@@ -19,7 +19,7 @@ class HIDDevice {
         }
     }
     __Get(Key, Params) {
-        return this.device.%Key%[Params* ]
+        return this.device.%Key%[Params*]
     }
     __Call(Key, Params) {
         return this.device.%Key%(Params*)
