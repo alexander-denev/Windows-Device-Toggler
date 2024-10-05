@@ -1,4 +1,4 @@
-# Windows-Touchscreen-Toggler
+# Windows-Device-Toggler
 
 Toggle the touchscreen HID device with this script.
 

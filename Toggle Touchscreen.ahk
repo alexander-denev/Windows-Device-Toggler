@@ -9,7 +9,7 @@
 #SingleInstance Off
 #NoTrayIcon
 
-#Include HIDDevice.ahk
+#Include PnPDevice.ahk
 
 toggleHotkey := "^#!t"
 
@@ -28,7 +28,7 @@ if not A_IsAdmin {
 	return
 }
 
-touchScreenDevice := HIDDevice("HID-compliant touch screen")
+touchScreenDevice := PnPDevice("HID-compliant touch screen")
 
 changeTrayIcon(touchScreenDevice.enabled)
 

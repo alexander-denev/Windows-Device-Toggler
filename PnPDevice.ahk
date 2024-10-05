@@ -4,13 +4,14 @@ This class is made to simplify using Windows API's "Win32_PnPEntity" class.
 For examples see the bottom of the definition file.
 For documentation, see https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-pnpentity.
 */
-class HIDDevice {
-    __New(deviceName) {
+class PnPDevice {
+    __New(id) {
         this.winmgmts := ComObjGet("winmgmts:")
-        this.update(deviceName)
+        this.update(id)
     }
-    update(name := this.device.Name) {
-        this.device := this.winmgmts.ExecQuery("SELECT * FROM Win32_PnPEntity WHERE Name = '" name "'").ItemIndex(0)
+    update(id := this.device.DeviceID) {
+        idEscaped := StrReplace(id, "\", "\\")
+        this.device := this.winmgmts.ExecQuery("SELECT * FROM Win32_PnPEntity WHERE DeviceID = '" idEscaped "'").ItemIndex(0)
     }
     enabled {
         get {
@@ -28,14 +29,14 @@ class HIDDevice {
 
 /*
 
-Example:
+;Example:
 
-myTouchscreen := HIDDevice("HID-compliant touch screen")
+myTouchscreen := HIDDevice("HID\GXTP7386&COL01\5&3B967D17&0&0000") ; This is the DeviceID a.k.a "Device instance path" in Device Manager
 if myTouchscreen.enabled {
     myTouchscreen.Disable()
 } else {
     myTouchscreen.Enable()
 }
-MsgBox(myTouchscreen.DeviceID)
+MsgBox(myTouchscreen.Name)
 
 */
