@@ -9,7 +9,7 @@
 #SingleInstance Off
 #NoTrayIcon
 
-#Include PnPDevice.ahk
+#Include <PnPDevice>
 
 toggleHotkey := "^#!t"
 
