@@ -50,7 +50,7 @@ changeTrayIcon(value) {
 }
 
 ; Function to toggle the touchscreen HID device.
-toggleTouchscreen(p*) {
+toggleTouchscreen(*) {
 	global
 	if touchScreenDevice.enabled {
 		touchScreenDevice.Disable()
