@@ -1,4 +1,4 @@
-# Device-Toggler
+# Windows-Device-Toggler
 
 Toggle a HID/PnP device with this script.
 
