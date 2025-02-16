@@ -13,7 +13,7 @@ class PnPDevice {
         idEscaped := StrReplace(id, "\", "\\")
         this.device := this.winmgmts.ExecQuery("SELECT * FROM Win32_PnPEntity WHERE DeviceID = '" idEscaped "'").ItemIndex(0)
     }
-    enabled {
+    isEnabled {
         get {
             this.update()
             return this.device.Status = "OK" ? 1 : 0
@@ -32,7 +32,7 @@ class PnPDevice {
 ;Example:
 
 myTouchscreen := HIDDevice("HID\GXTP7386&COL01\5&3B967D17&0&0000") ; This is the DeviceID a.k.a "Device instance path" in Device Manager
-if myTouchscreen.enabled {
+if myTouchscreen.isEnabled {
     myTouchscreen.Disable()
 } else {
     myTouchscreen.Enable()

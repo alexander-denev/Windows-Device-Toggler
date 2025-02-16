@@ -1,0 +1,3 @@
+class Ini {
+    statis parse()
+}

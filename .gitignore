@@ -1,3 +1,4 @@
-out/
+out/*
+!out/options.ini
 test/
 config.*
